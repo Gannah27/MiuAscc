@@ -230,6 +230,23 @@ p {
   text-align: center;
 }
 
+h3 {
+  font-size: 25px;
+  color: #DFBF84;
+  text-shadow: 1px 1px 0 #000;
+
+  line-height: 10px;
+}
+
+.p1 {
+  color: #f6f6f6;
+  font-family: 'Orienta', sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0 0 24px;
+
+}
+
 li {
   color: #f6f6f6;
   font-family: 'Orienta', sans-serif;
@@ -385,4 +402,29 @@ a:hover {
   margin: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
+}
+
+.post {
+  height: auto;
+  width: 100%;
+  position: relative;
+  padding: 15px;
+  margin: auto;
+  border: #DFBF84 solid 2px;
+  border-radius: 15px;
+  background-color: #011936FF;
+}
+
+.postContainer {
+  width: 80%;
+  position: relative;
+  margin: auto;
+}
+
+.mediaContainer {
+  position: relative;
+  margin: auto;
+  width: 80%;
+  height: auto;
+  border: green solid 2px;
 }

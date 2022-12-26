@@ -1,3 +1,2 @@
 # MiuAscc
-first 
 jira commite

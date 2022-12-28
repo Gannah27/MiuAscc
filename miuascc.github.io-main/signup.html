@@ -79,46 +79,47 @@
 
 <body>
 
-<form>
-    <div class="container">
-        <h1>Register</h1>
-        <hr>
+    <form>
+        <div class="container">
+            <h1>Register</h1>
+            <hr>
 
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="usn" id="usn" required>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="usn" id="usn" required>
 
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" placeholder="Enter Email" name="email" id="email" required>
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Password" name="psw" id="psw" required>
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Password" name="psw" id="psw" required>
 
-        <hr>
-        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+            <hr>
+            <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-        <button type="button" id="submitData" name="submitData" class="registerbtn">Register</button>
-    </div>
+            <button type="button" id="submitData" name="submitData" class="registerbtn">Register</button>
+        </div>
 
-    <div class="container signin">
-        <p>Already have an account? <a href="signin.html">Sign in</a>.</p>
-        <p> Back to home? <a href="index.html">Click Me</a>.</p>
-    </div>
-</form>
+        <div class="container signin">
+            <p>Already have an account? <a href="signin.html">Sign in</a>.</p>
+            <p> Back to home? <a href="index.html">Click Me</a>.</p>
+        </div>
+    </form>
 
 </body>
+
 </html>
 
 <script type="module">
     // Import the functions you need from the SDKs you need
-    import {initializeApp} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
     import {
         getAuth,
         createUserWithEmailAndPassword,
         signInWithEmailAndPassword,
         signOut
     } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-    import {getDatabase, set, ref, update} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
 
 
     // TODO: Add SDKs for Firebase products that you want to use
@@ -127,13 +128,14 @@
     // Your web app's Firebase configuration
     const firebaseConfig = {
         // Your configs
-        apiKey: "AIzaSyCtCKWZcIMh_eLXnbGToSr2ItoWXEI7I_Y",
-        authDomain: "miuassc.firebaseapp.com",
-        databaseURL: "https://miuassc-default-rtdb.firebaseio.com",
-        projectId: "miuassc",
-        storageBucket: "miuassc.appspot.com",
-        messagingSenderId: "783175994078",
-        appId: "1:783175994078:web:a6da7eca9e194648c9104f"
+        apiKey: "AIzaSyDKM8D3eqY9OUNwJRdtB8PIhoATRdXNwyE",
+        authDomain: "test-b97de.firebaseapp.com",
+        databaseURL: "test-b97de-default-rtdb.firebaseio.com",
+        projectId: "test-b97de",
+        storageBucket: "test-b97de.appspot.com",
+        messagingSenderId: "850574678771",
+        appId: "1:850574678771:web:6ca0b7c990d75bdb7d3586",
+        measurementId: "G-WFXK8K77WN"
     };
 
     // Initialize Firebase
@@ -159,7 +161,7 @@
                     .then(() => {
                         // Data saved successfully!
                         alert('user created successfully');
-        
+
                     })
                     .catch((error) => {
                         // The write failed...
@@ -173,9 +175,9 @@
                 alert(errorMessage);
             });
 
-        
-        
-        
+
+
+
     });
 
 </script>

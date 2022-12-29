@@ -127,6 +127,7 @@ btnRegister.addEventListener('click', (e)=>
                     .then(() => {
                         // Data saved successfully!
                         alert('User created successfully');
+                        location.replace('login.html');
         
                     })
                     .catch((error) => {

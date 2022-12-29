@@ -100,8 +100,9 @@ const firebaseConfig = {
 
 
 
-btnRegister.addEventListener('click', (e)=>
+btnRegister.addEventListener('click', function(e)
 {
+    e.preventDefault();
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
   var confirmPassword = document.getElementById('cPassword').value;

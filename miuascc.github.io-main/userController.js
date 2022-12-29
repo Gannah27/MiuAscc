@@ -5,7 +5,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
         signInWithEmailAndPassword,
         signOut
     } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
-    import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+    import { getDatabase, set, ref, update, onValue } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
 
 
     // TODO: Add SDKs for Firebase products that you want to use
@@ -152,7 +152,27 @@ auth.onAuthStateChanged(function(user) {
         var user = auth.currentUser;
     
         if(user != null){
-            
+            var isAdminRef = ref(database, 'users/' + user.uid + '/isAdmin');
+            onValue(isAdminRef, (snapshot) => {
+                var data = snapshot.val();
+                console.log(data);
+                if(data)
+                {
+                    document.getElementById('logoutShow').style.display = "block";
+                    document.getElementById('loginShow').style.display = "none";
+                    document.getElementById('registerShow').style.display = "none";
+                    document.getElementById('adminShow').style.display = "block";
+
+                }
+                else
+                {
+                    document.getElementById('logoutShow').style.display = "block";
+                    document.getElementById('loginShow').style.display = "none";
+                    document.getElementById('registerShow').style.display = "none";
+                    document.getElementById('adminShow').style.display = "none";
+
+                }
+              });
             document.getElementById('logoutShow').style.display = "block";
             //console.log(firebaseRef.child('users').child(user.uid).push(txtPassword.value));
             document.getElementById('loginShow').style.display = "none";

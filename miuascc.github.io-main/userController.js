@@ -30,6 +30,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
     const database = getDatabase(app);
     var btnRegister = document.getElementById('submit');
     var login = document.getElementById('loginBtn');
+    var logout =  document.getElementById('logoutShow');
     
 if(login)
 {
@@ -140,6 +141,43 @@ if(btnRegister)
     });
 
 }
+
+var announ = document.getElementById('ann');
+      
+      //var firebaseRef = database().ref();
+auth.onAuthStateChanged(function(user) {
+    if (user) {
+        // User is signed in.
+    
+        var user = auth.currentUser;
+    
+        if(user != null){
+            
+            document.getElementById('logoutShow').style.display = "block";
+            //console.log(firebaseRef.child('users').child(user.uid).push(txtPassword.value));
+            document.getElementById('loginShow').style.display = "none";
+            document.getElementById('registerShow').style.display = "none";
+        }
+    
+      } else {
+        document.getElementById('loginShow').style.display = "block";
+        document.getElementById('registerShow').style.display = "block";
+        document.getElementById('announShow').style.display = "none";
+        
+      }
+});
+
+if(logout){
+    logout.addEventListener('click',function(e){
+        e.preventDefault();
+        auth.signOut();
+        alert('Logged out successfully');
+        window.location.replace("index.html");
+
+
+    });
+}
+    
 
    
     

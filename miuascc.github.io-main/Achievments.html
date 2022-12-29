@@ -27,11 +27,15 @@
     </nav>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="index.html">Home</a>
-        <a href="Announcments.html">Announcments</a>
+        <a  href="index.html" >Home</a>
+        <a id="announShow" href="Announcments.html">Announcments</a>
         <a href="AboutUs.html">About Us</a>
-        <a href="Achievments.html" class="active">Achievments</a>
-        <a href="Commitees.html">Commitees</a>
+        <a href="Achievments.html" class="active">Achievements</a>
+        <a href="Commitees.html">Committees</a>
+        <a style="display: block;" id="loginShow" href="login.html">Login</a>
+        <a style="display: block;" id="registerShow" href="register.html">Register</a>
+        <a style="display: none;" id="logoutShow" >Logout</a>
+    </div>
     </div>
     <script>
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
@@ -125,3 +129,5 @@
         </div>
     </div>
 </body>
+<script type="module" src="userController.js"></script>
+</html>

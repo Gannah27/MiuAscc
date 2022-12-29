@@ -328,66 +328,6 @@
         </div>
     </div>
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getDatabase, ref, set, push } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
-    import {
-            getAuth,
-            createUserWithEmailAndPassword,
-            signInWithEmailAndPassword,
-            signOut
-        } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
-    
-    
-    const firebaseConfig = {
-        apiKey: "AIzaSyBRC3Z3hwO2K5GL4GuYT6lj2uHF81HhHIE",
-        authDomain: "trialsocialmedia-24fd5.firebaseapp.com",
-        databaseURL: "https://trialsocialmedia-24fd5-default-rtdb.firebaseio.com",
-        projectId: "trialsocialmedia-24fd5",
-        storageBucket: "trialsocialmedia-24fd5.appspot.com",
-        messagingSenderId: "489989876046",
-        appId: "1:489989876046:web:a6ee092801e1da5b45961f",
-        measurementId: "G-NK7X1BMFS1"
-      };
-    
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth();
-      const database = getDatabase();
-        
-      var announ = document.getElementById('ann');
-      
-      //var firebaseRef = database().ref();
-      auth.onAuthStateChanged(function(user) {
-      if (user) {
-        // User is signed in.
-    
-        var user = auth.currentUser;
-    
-        if(user != null){
-            
-            document.getElementById('logoutShow').style.display = "block";
-            //console.log(firebaseRef.child('users').child(user.uid).push(txtPassword.value));
-            document.getElementById('loginShow').style.display = "none";
-            document.getElementById('registerShow').style.display = "none";
-        }
-    
-      } else {
-        document.getElementById('loginShow').style.display = "block";
-        document.getElementById('registerShow').style.display = "block";
-        document.getElementById('announShow').style.display = "none";
-        
-      }
-    });
-
-
-    document.getElementById('logoutShow').addEventListener('click',function(e){
-        auth.signOut();
-        alert('Logged out successfully');
-        window.location.replace("index.html");
-
-
-    })
-    
-    </script>
+    <script type="module" src="userController.js"></script>
 </body>
 

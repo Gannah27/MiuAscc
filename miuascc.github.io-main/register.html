@@ -27,28 +27,27 @@
                     <label for="uname"><b>Username</b></label>
                     <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
 
-                    <label for="fname"><b>Full Name</b></label>
-                    <input id="fname" type="text" placeholder="Enter Your Full Name" name="fname" required>
+                    <label for="fullname"><b>Full Name</b></label>
+                    <input id="fullname" type="text" placeholder="Enter Your Full Name" name="fullname" required>
 
                     <label for="email"><b>E-Mail</b></label>
                     <input id="email" type="text" placeholder="Enter E-Mail" name="email" required>
 
                     <label for="pos"><b>Select Club Position</b></label>
                     <div>
-                        <select>
-                            <option value="0"></option>
-                            <option value="1">Team HR</option>
-                            <option value="2">Team R&D</option>
-                            <option value="3">Team PR</option>
-                            <option value="4">Team EP</option>
-                            <option value="5">Team Media</option>
-                            <option value="6">Team Awarness</option>
-                            <option value="7">Team Service</option>
-                            <option value="8">Team Charity</option>
-                            <option value="9">Team Case Study</option>
-                            <option value="10">Team Mahw Omya</option>
-                            <option value="11">Team Dar</option>
-                            <option value="12">Board Member</option>
+                        <select name="teams" id="teams">
+                            <option value="Team Dar">Team Dar</option>
+                            <option value="Team HR">Team HR</option>
+                            <option value="Team R&D">Team R&D</option>
+                            <option value="Team PR">Team PR</option>
+                            <option value="Team EP">Team EP</option>
+                            <option value="Team Media">Team Media</option>
+                            <option value="Team Awarness">Team Awarness</option>
+                            <option value="Team Service">Team Service</option>
+                            <option value="Team Charity">Team Charity</option>
+                            <option value="Team Case Study">Team Case Study</option>
+                            <option value="Team Mahw Omya">Team Mahw Omya</option>
+                            <option value="Board Member">Board Member</option>
                         </select>
                     </div>
 
@@ -71,37 +70,6 @@
 </body>
 
 </html>
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-    import { getDatabase, ref, set, push, child, update } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
-    const firebaseConfig = {
-        // Your configs
-        apiKey: "AIzaSyDKM8D3eqY9OUNwJRdtB8PIhoATRdXNwyE",
-        authDomain: "test-b97de.firebaseapp.com",
-        databaseURL: "test-b97de-default-rtdb.firebaseio.com",
-        projectId: "test-b97de",
-        storageBucket: "test-b97de.appspot.com",
-        messagingSenderId: "850574678771",
-        appId: "1:850574678771:web:6ca0b7c990d75bdb7d3586",
-        measurementId: "G-WFXK8K77WN"
-    };
-    const app = initializeApp(firebaseConfig);
-    document.getElementById('submit').addEventListener("click", function () {
-        var database = getDatabase();
-        var username = document.getElementById('uname').value;
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
-        var fullname = document.getElementById('fname').value;
-        push(child(ref(database, "users/" + username)).key, {
-            email: email,
-            password: password,
-            fullname: fullname
-        })
-            .then(() => { alert("data saved"); })
-            .catch((error) => { alert(error.message); });
-
-
-    });
-
+<script type="module" src="userController.js">
 </script>

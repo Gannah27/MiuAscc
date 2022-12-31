@@ -146,6 +146,7 @@ var announ = document.getElementById('ann');
       
       //var firebaseRef = database().ref();
 auth.onAuthStateChanged(function(user) {
+    
     if (user) {
         // User is signed in.
     
@@ -163,15 +164,17 @@ auth.onAuthStateChanged(function(user) {
 
                 }
               });
+              document.getElementById('announShow').style.display = "block";
               document.getElementById('logoutShow').style.display = "block";
               document.getElementById('loginShow').style.display = "none";
               document.getElementById('registerShow').style.display = "none";
+
         }
     
       } else {
         document.getElementById('loginShow').style.display = "block";
         document.getElementById('registerShow').style.display = "block";
-        document.getElementById('announShow').style.display = "none";
+        
         
       }
 });

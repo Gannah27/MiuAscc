@@ -183,6 +183,7 @@ auth.onAuthStateChanged(function (user) {
     }
     const date = new Date();
     console.log(user.uid);
+    
     if (user != null) {
         var userFullnameRef = ref(database, 'users/' + user.uid + '/fullname');
         onValue(userFullnameRef, (snapshot) => {

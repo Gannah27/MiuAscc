@@ -38,6 +38,7 @@ var btnRegister = document.getElementById('submit');
 var login = document.getElementById('loginBtn');
 var logout = document.getElementById('logoutShow');
 
+// The following is the Login code logic
 if (login) {
     login.addEventListener('click', function (e) {
 

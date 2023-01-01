@@ -53,9 +53,19 @@
         }       
     </script>
     <div class="firstDiv">
-        <h2>Achievements</h2>
+        <h2>Admin Panel</h2>
     </div>
+
+    <form>
+        <div class="container">
+            <label for="uid"><b>User ID</b></label>
+            <input id="uid" type="text" placeholder="Enter ID of user" name="uid" required>
+
+            
+            <button id="makeAdmin" name="makeAdmin" type="submit">Make Admin</button>
+        </div>
     
 </body>
 <script type="module" src="userController.js"></script>
+<script type="module" src="adminController.js"></script>
 </html>

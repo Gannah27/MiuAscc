@@ -146,6 +146,7 @@ var announ = document.getElementById('ann');
       
       //var firebaseRef = database().ref();
 auth.onAuthStateChanged(function(user) {
+    
     if (user) {
         // User is signed in.
     
@@ -157,32 +158,23 @@ auth.onAuthStateChanged(function(user) {
                 var data = snapshot.val();
                 console.log(data);
                 if(data)
-                {
-                    document.getElementById('logoutShow').style.display = "block";
-                    document.getElementById('loginShow').style.display = "none";
-                    document.getElementById('registerShow').style.display = "none";
+                { 
                     document.getElementById('adminShow').style.display = "block";
-
-                }
-                else
-                {
-                    document.getElementById('logoutShow').style.display = "block";
-                    document.getElementById('loginShow').style.display = "none";
-                    document.getElementById('registerShow').style.display = "none";
-                    document.getElementById('adminShow').style.display = "none";
+                    document.getElementById('addPostShow').style.display = "block";
 
                 }
               });
-            document.getElementById('logoutShow').style.display = "block";
-            //console.log(firebaseRef.child('users').child(user.uid).push(txtPassword.value));
-            document.getElementById('loginShow').style.display = "none";
-            document.getElementById('registerShow').style.display = "none";
+              document.getElementById('announShow').style.display = "block";
+              document.getElementById('logoutShow').style.display = "block";
+              document.getElementById('loginShow').style.display = "none";
+              document.getElementById('registerShow').style.display = "none";
+
         }
     
       } else {
         document.getElementById('loginShow').style.display = "block";
         document.getElementById('registerShow').style.display = "block";
-        document.getElementById('announShow').style.display = "none";
+        
         
       }
 });

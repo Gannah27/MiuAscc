@@ -28,14 +28,15 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a  href="index.html" >Home</a>
-        <a id="announShow" href="Announcments.html">Announcments</a>
-        <a href="AboutUs.html">About Us</a>
-        <a href="Achievments.html" class="active">Achievements</a>
+        <a id="announShow" style="display: none;" href="Announcments.html">Announcments</a>
+        <a id="adminShow" style="display: none;" href="adminPanel.html">Admin Panel</a>
+        <a id="addPostShow" style="display: none;" href="addPost.html">Add Post</a>
+        <a href="AboutUs.html" class="active">About Us</a>
+        <a href="Achievments.html">Achievements</a>
         <a href="Commitees.html">Committees</a>
         <a style="display: block;" id="loginShow" href="login.html">Login</a>
         <a style="display: block;" id="registerShow" href="register.html">Register</a>
         <a style="display: none;" id="logoutShow" >Logout</a>
-    </div>
     </div>
     <script>
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
@@ -50,42 +51,50 @@
             document.getElementById("main").style.marginLeft = "0";
         }       
     </script>
-    <div class="firstDiv">
-        <h2>Achievements</h2>
-    </div>
-    <div style="margin-right: 10px;">
+    <div class="firstDiv" style="margin: 10 px;">
+        <h2>about us</h2>
         <p>
-        <ul>
-            <li>ASCC has succeeded in carrying out more than 100 aid convoys in the governorates of Delta and Upper
-                Egypt.</li>
-            <li>Establishing awareness campaigns about diseases and wrong habits for people and families in rural Egypt.
-            </li>
-            <li>Equipping non-integrated homes with furniture, electrical appliances and ceiling to provide a decent
-                life for people in the Delta and Upper Egypt.</li>
-            <li>Preparing and distributing 6,900 food bags and Ramadan bags to the families and needy people in the
-                Delta and Upper Egypt.</li>
-            <li>Distribution of 6,000 blankets in the winter to 6,000 homes and families in the
-                governorates of Egypt and Cairo.</li>
-            <li>Holding an annual clothing exhibition event to distribute clothes and spread joy among parents and
-                children in the villages and governorates of Egypt.</li>
-            <li>ASCC succeeded, thanks to God, in preparing and organizing weddings for 100 orphan bride and groom, and
-                helped them to raise their families and their new lives.</li>
-            <li>ASCC's work also varied in the areas of reconstruction, such as rehabilitating schools, installing roofs
-                and water connections, and equipping homes with the necessary furniture and equipment.</li>
-            <li>We donated more than 1,800 bags of blood to the Blood Bank of the Ministry of Health and the Red
-                Crescent.</li>
-            <li>Donated equipment and devices to the National Cancer Institute in Sayeda Zainab.</li>
-            <li>Donating and cooperating with the Misr El Kheir Association to relieve the anguish of those in debt and
-                return to normal life, another time for the in debt.</li>
-            <li>Organizing a breast cancer awareness marathon and holding the Autism Challenge Festival in cooperation
-                with the Ministry of Youth and Sports.</li>
-            <li>ASCC succeeded in participating in the YLF Youth Leaders Competition, reaching the qualifying stage
-                among student activities, and choosing it among the top ten student activities in Egypt, based on the
-                decision of the jury and the organizers of the YLF competition, including the Minister of Higher
-                Education, Dr. Khaled Abdel Ghaffar, and the famous businessman Ahmed Abu Hashima, and a member of the
-                People’s Assembly, Mr. Ahmed Fathi.</li>
-        </ul>
+            ASCC FOR HELP
+            is a charitable student activity, established at Misr International University at
+            1999, that performs many charitable works in different ways in order to
+            help people and provide them a better life and the students does the
+            charity work in various governorates of Egypt.
         </p>
+        <p>
+            There is wide variety of the charity work that the MIU students do in the student activity ASCC such as:
+        <ol>
+            <li>Charitable convoys to provide aid for free.</li>
+            <li>Distribution of food bags to families who are unable to.</li>
+            <li>Preparing and distributing meals to the needy.</li>
+            <li>Sorting and distributing new clothes in good condition and distributing blankets for the winter.</li>
+            <li>The distribution of Ramadan bags.</li>
+            <li>Donation to non-integrated hospitals.</li>
+            <li>Establishing a Paralympic Games for children with special needs.</li>
+        </ol>
+        </p>
+        <p>
+            And aside the charity work and the financial aid that we provide, we do our best to spread the joy among
+            children
+            and provide them with their simplest rights such as joy and happines and also:
+        <ol>
+            <li>Conducting awareness campaigns and presentations for children in a fun and simplified
+                manner to raise awareness of diseases and teach them the importance of personal hygiene.</li>
+            <li>Providing doctors and medicine to children on a permanent basis to check on their health.</li>
+            <li>Visiting children on a permanent and daily basis in orphanages and playing with them, as well as talking
+                and
+                knowing their dreams and requests to provide them with assistance and psychological support before
+                financial.</li>
+            <li>Organizing recreational and cultural trips for children to bring joy and pleasure to them.</li>
+            <li>Visiting the children at Hospital 57375 and Abu Al-Rish and making donations constantly to help the
+                children in their treatment journey,
+                to play with them and to ease the suffering of their sick</li>
+        </ol>
+        </p>
+        <p>
+            For more information about the club click <a href="assets/ASCC FOR HELP MIU.pdf">here</a> to open the
+            attached PDF file.
+        </p>
+    </div>
     </div>
     <div class="committeesTitle">
         <h2>Sponsors</h2>
@@ -128,6 +137,7 @@
             </div>
         </div>
     </div>
+
 </body>
 <script type="module" src="userController.js"></script>
 </html>

@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js"; //Commit
     import {
         getAuth,
         createUserWithEmailAndPassword,

@@ -14,7 +14,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/main.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
     <style>
 
     </style>
@@ -27,16 +27,16 @@
     </nav>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a  href="index.html" >Home</a>
+        <a href="index.html">Home</a>
         <a id="announShow" style="display: none;" href="Announcements.html">Announcements</a>
         <a id="adminShow" style="display: block;" href="adminPanel.html" class="active">Admin Panel</a>
         <a id="addPostShow" style="display: none;" href="addPost.html">Add Post</a>
         <a href="AboutUs.html">About Us</a>
-        <a href="Achievments.html" >Achievements</a>
+        <a href="Achievments.html">Achievements</a>
         <a href="Commitees.html">Committees</a>
         <a style="display: block;" id="loginShow" href="login.html">Login</a>
         <a style="display: block;" id="registerShow" href="register.html">Register</a>
-        <a style="display: none;" id="logoutShow" >Logout</a>
+        <a style="display: none;" id="logoutShow">Logout</a>
     </div>
     </div>
     <script>
@@ -61,11 +61,12 @@
             <label for="uid"><b>User ID</b></label>
             <input id="uid" type="text" placeholder="Enter ID of user" name="uid" required>
 
-            
+
             <button id="makeAdmin" name="makeAdmin" type="submit">Make Admin</button>
         </div>
-    
+
 </body>
 <script type="module" src="../Controllers/userController.js"></script>
 <script type="module" src="../Controllers/adminController.js"></script>
+
 </html>

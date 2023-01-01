@@ -14,7 +14,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="assets/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../assets/main.css" />
     <style>
 
     </style>
@@ -22,17 +22,17 @@
 
 <body>
     <nav>
-        <a href="index.html"><img class="navlogo" src="assets/Logo.png"></a>
-        <a onclick="openNav()"><img class="NavIcon" src="assets/menu icon.png"></a>
+        <a href="index.html"><img class="navlogo" src="../../assets/Logo.png"></a>
+        <a onclick="openNav()"><img class="NavIcon" src="../../assets/menu icon.png"></a>
     </nav>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a  href="index.html" >Home</a>
-        <a id="announShow" style="display: none;" href="Announcments.html">Announcments</a>
-        <a id="adminShow" style="display: block;" href="adminPanel.html">Admin Panel</a>
+        <a id="announShow" style="display: none;" href="Announcements.html">Announcements</a>
+        <a id="adminShow" style="display: block;" href="adminPanel.html" class="active">Admin Panel</a>
         <a id="addPostShow" style="display: none;" href="addPost.html">Add Post</a>
         <a href="AboutUs.html">About Us</a>
-        <a href="Achievments.html" class="active">Achievements</a>
+        <a href="Achievments.html" >Achievements</a>
         <a href="Commitees.html">Committees</a>
         <a style="display: block;" id="loginShow" href="login.html">Login</a>
         <a style="display: block;" id="registerShow" href="register.html">Register</a>
@@ -66,6 +66,6 @@
         </div>
     
 </body>
-<script type="module" src="userController.js"></script>
-<script type="module" src="adminController.js"></script>
+<script type="module" src="../Controllers/userController.js"></script>
+<script type="module" src="../Controllers/adminController.js"></script>
 </html>

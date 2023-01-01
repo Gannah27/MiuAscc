@@ -149,7 +149,6 @@ auth.onAuthStateChanged(function (user) {
 
     if (user) {
         // User is signed in.
-
         var user = auth.currentUser;
         if (user != null) {
             //check whether the logged in user is an admin

@@ -1,5 +1,4 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js"; //Commit
-
     import {
         getAuth,
         createUserWithEmailAndPassword,
@@ -47,6 +46,5 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebas
                 // The write failed...
                 alert("user not found");
             });
-
     });
    }

@@ -59,7 +59,7 @@
     <div id="posts"></div>
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-        import { doc, getDocs, getFirestore, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"
+        import { doc, getDocs, getFirestore, collection, orderBy, query } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"
         import { getDatabase } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
         var firebaseConfig = {
             //Firebase config
@@ -78,25 +78,34 @@
         const db = getDatabase(app);
         const fs = getFirestore(app);
         var docRef = collection(fs, "posts");
-        const snapshot = await getDocs(docRef);
+        const q = query(docRef, orderBy("createdAt", 'desc'));
+        const snapshot = await getDocs(q);
         snapshot.docs.forEach(docs => {
+            console.log(docs.data());
 
             let post = document.createElement("div");
             let details = document.createElement("div");
             let publisher = document.createElement("h3");
             let container = document.createElement("div");
             let image = document.createElement("img");
+            let date = document.createElement("p");
+            let formLink = document.createElement("a");
 
             publisher.innerHTML = docs.data().author;
             details.innerHTML = docs.data().postContent;
+            date.innerHTML = docs.data().date;
+            formLink.innerHTML = docs.data().formLink;
 
             container.setAttribute("class", "mediaContainer");
             image.setAttribute("class", "postImage");
             image.setAttribute("src", docs.data().imageUrl);
             post.setAttribute("class", "post");
             details.setAttribute("class", "p1");
+            formLink.setAttribute("href", docs.data().formLink);
 
+            post.appendChild(date);
             post.appendChild(details);
+            post.appendChild(formLink);
             container.appendChild(image);
             post.appendChild(container);
             document.getElementById("postC").appendChild(publisher);
@@ -108,12 +117,6 @@
 
     </script>
     <div id="postC" class="postContainer">
-        <h3>AdminName</h3>
-        <div class="post">
-            <div class="p1">post details</div>
-            <div class="mediaContainer"> <img class="postImage" src="../../assets/slideshow image 12.JPG"> </div>
-
-        </div>
     </div>
 
 </body>

@@ -77,7 +77,7 @@ if (login) {
                 alert(errorMessage);
             });
 
-
+        // log out here
         signOut(auth).then(() => {
             // Sign-out successful.
         }).catch((error) => {

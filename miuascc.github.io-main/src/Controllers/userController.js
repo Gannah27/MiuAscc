@@ -77,7 +77,7 @@ if (login) {
                 alert(errorMessage);
             });
 
-        // log out here
+
         signOut(auth).then(() => {
             // Sign-out successful.
         }).catch((error) => {
@@ -192,6 +192,7 @@ auth.onAuthStateChanged(function (user) {
             if (addPostbtn) {
                 addPostbtn.addEventListener('click', function (e) {
                     e.preventDefault();
+                    
                     let minute = date.getMinutes();
                     let hour = date.getHours();
                     let day = date.getDate();

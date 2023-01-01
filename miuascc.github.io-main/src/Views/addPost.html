@@ -11,7 +11,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/main.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
     <link rel="stylesheet" type="text/css" href="loginStyle.css" />
 
     <style>
@@ -27,7 +27,7 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
-        <a id="announShow" href="Announcements.html" >Announcements</a>
+        <a id="announShow" href="Announcements.html">Announcements</a>
         <a id="adminShow" style="display: block;" href="adminPanel.html">Admin Panel</a>
         <a id="addPostShow" style="display: block;" href="addPost.html" class="active">Add Post</a>
         <a href="AboutUs.html" href="AboutUs.html">About Us</a>
@@ -64,15 +64,17 @@
                     <label for="details"><b>Post Details:</b></label><br>
                     <textarea id="postDetails" name="details" cols="30" rows="10"
                         style="width: 100%; margin-bottom: 30px;" required></textarea>
-                    <button id="submit" type="submit">Post</button>
+                    <button id="addpost" type="submit">Post</button>
                 </div>
             </form>
         </div>
     </div>
-    <script>
+    <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
         import { doc, getDocs, getFirestore, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"
         import { getDatabase } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js"
+
         var firebaseConfig = {
             //Firebase config
             apiKey: "AIzaSyBRC3Z3hwO2K5GL4GuYT6lj2uHF81HhHIE",
@@ -89,6 +91,35 @@
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const fs = getFirestore(app);
+        const st = getStorage(app);
+        var docRef = collection(fs, "posts");
+        let fileUpload = document.getElementById("fileIn");
+        let imageURL;
+
+
+        let random_name_int = Math.floor(100000000 + Math.random() * 900000000);
+        let random_name = random_name_int.toString();
+        var storageRef = ref(st, random_name);
+        if (fileUpload) {
+            fileUpload.addEventListener('change', function (evt) {
+                let firstFile = evt.target.files[0]; // upload the first file only
+                let uploadTask = uploadBytes(storageRef, firstFile).then(function (snapshot) {
+
+                    console.log('success! your image has been uploaded!');
+                    getDownloadURL(storageRef).then(function (downloadURL) {
+                        imageURL = downloadURL;
+                        console.log('imageURL:', imageURL);
+                    });
+
+
+                });
+            })
+
+        };
+
+        const docData = {
+
+        };
     </script>
 </body>
 <script type="module" src="../Controllers/adminController.js"></script>

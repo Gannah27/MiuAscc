@@ -14,7 +14,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/main.css" />
+    <link rel="stylesheet" type="text/css" href="main.css" />
     <style>
 
     </style>
@@ -27,7 +27,7 @@
     </nav>
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a  href="index.html" class="active">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a id="announShow" style="display: none;" href="Announcements.html">Announcements</a>
         <a id="adminShow" style="display: none;" href="adminPanel.html">Admin Panel</a>
         <a id="addPostShow" style="display: none;" href="addPost.html">Add Post</a>
@@ -36,14 +36,14 @@
         <a href="Commitees.html">Committees</a>
         <a style="display: block;" id="loginShow" href="login.html">Login</a>
         <a style="display: block;" id="registerShow" href="register.html">Register</a>
-        <a style="display: none;" id="logoutShow" >Logout</a>
+        <a style="display: none;" id="logoutShow">Logout</a>
     </div>
     <script>
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
             document.getElementById("main").style.marginLeft = "250px";
-        }   
+        }
 
         /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
         function closeNav() {
@@ -332,4 +332,3 @@
 
     <script type="module" src="../Controllers/userController.js"></script>
 </body>
-

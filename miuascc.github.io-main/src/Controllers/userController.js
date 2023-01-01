@@ -10,7 +10,7 @@ import { doc, getDocs, setDoc, getFirestore, collection, Timestamp, addDoc } fro
 import { getStorage, uploadBytes, ref as ref_storage, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js"
 
 
-
+//FIREBASE
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

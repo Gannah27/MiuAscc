@@ -47,15 +47,11 @@ if (login) {
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
 
-        //sign up user
-
-
         // log in user
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                // ...
 
                 // save log in details into real time database
                 var lgDate = new Date();
@@ -97,6 +93,7 @@ if (login) {
 if (btnRegister) {
     btnRegister.addEventListener('click', function (e) {
         e.preventDefault();
+        // Get values written in the registeration forms
         var email = document.getElementById('email').value;
         var password = document.getElementById('password').value;
         var confirmPassword = document.getElementById('cPassword').value;
@@ -105,12 +102,11 @@ if (btnRegister) {
         var fname = document.getElementById('fullname').value;
 
         if (password == confirmPassword) {
-
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     // Signed in
                     const user = userCredential.user;
-                    //...user.uid
+                    //...Push the user data to the firebase
                     set(ref(database, 'users/' + user.uid), {
                         username: username,
                         email: email,
@@ -123,7 +119,6 @@ if (btnRegister) {
                             // Data saved successfully!
                             alert('User created successfully');
                             location.replace('login.html');
-
                         })
                         .catch((error) => {
                             // The write failed...
@@ -133,16 +128,13 @@ if (btnRegister) {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    // ..
+                    // ..Display the error in the console
                     alert(errorMessage);
                 });
-
         }
-
         else {
             alert('Password not matching');
         }
-
     });
 
 }
@@ -159,12 +151,14 @@ auth.onAuthStateChanged(function (user) {
 
         var user = auth.currentUser;
         if (user != null) {
+            //check whether the logged in user is an admin
             var isAdminRef = ref(database, 'users/' + user.uid + '/isAdmin');
             onValue(isAdminRef, (snapshot) => {
                 var data = snapshot.val();
                 userID = user.uid;
                 console.log(data);
                 console.log(user.uid);
+                //show specefic buttons
                 if (data) {
                     document.getElementById('adminShow').style.display = "block";
                     document.getElementById('addPostShow').style.display = "block";

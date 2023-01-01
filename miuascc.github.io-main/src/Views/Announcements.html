@@ -73,16 +73,21 @@
             measurementId: "G-NK7X1BMFS1"
         };
 
-
+        //Initializing the firebase connection
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const fs = getFirestore(app);
+        //get the posts refrence
         var docRef = collection(fs, "posts");
+        //prepare query
         const q = query(docRef, orderBy("createdAt", 'desc'));
+        //execute the query
         const snapshot = await getDocs(q);
+        //loop on the docs received from the query
         snapshot.docs.forEach(docs => {
             console.log(docs.data());
 
+            //DOM to create new elements
             let post = document.createElement("div");
             let details = document.createElement("div");
             let publisher = document.createElement("h3");
@@ -103,6 +108,7 @@
             details.setAttribute("class", "p1");
             formLink.setAttribute("href", docs.data().formLink);
 
+            //adding the elements created to the document
             post.appendChild(date);
             post.appendChild(details);
             post.appendChild(formLink);

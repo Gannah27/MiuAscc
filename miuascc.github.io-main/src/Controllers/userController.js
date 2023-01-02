@@ -149,13 +149,15 @@ auth.onAuthStateChanged(function (user) {
 
         var user = auth.currentUser;
         if (user != null) {
+
             //check whether the logged in user is an admin
             var isAdminRef = ref(database, 'users/' + user.uid + '/isAdmin');
             onValue(isAdminRef, (snapshot) => {
                 var data = snapshot.val();
                 userID = user.uid;
                 console.log(data);
-                console.log(user.uid);
+
+
                 //show specefic buttons
                 if (data) {
                     document.getElementById('adminShow').style.display = "block";
@@ -167,6 +169,7 @@ auth.onAuthStateChanged(function (user) {
 
             document.getElementById('announShow').style.display = "block";
             document.getElementById('logoutShow').style.display = "block";
+            document.getElementById('profileShow').style.display = "block";
             document.getElementById('loginShow').style.display = "none";
             document.getElementById('registerShow').style.display = "none";
 
@@ -181,6 +184,9 @@ auth.onAuthStateChanged(function (user) {
     const date = new Date();
     console.log(user.uid);
     if (user != null) {
+        let clubPosition
+
+        var clubPositionRef = ref(database, 'users/' + user.uid + '/clubPosition');
         var userFullnameRef = ref(database, 'users/' + user.uid + '/fullname');
         onValue(userFullnameRef, (snapshot) => {
             userFullname = snapshot.val();
@@ -218,8 +224,29 @@ auth.onAuthStateChanged(function (user) {
 
                 });
             }
+
+            let nameDiv = document.createElement("p");
+            nameDiv.innerHTML = "Full Name: " + userFullname;
+            document.getElementById("profileBox").appendChild(nameDiv);
+        });
+        onValue(clubPositionRef, (snapshot) => {
+
+            clubPosition = snapshot.val();
+            let posDiv = document.createElement("p");
+            posDiv.innerHTML = "Club Team: " + clubPosition;
+            document.getElementById("profileBox").appendChild(posDiv);
+
         });
 
+
+        let idDiv = document.createElement("p");
+        let emailDiv = document.createElement("p");
+
+        idDiv.innerHTML = "ASCC ID: " + user.uid;
+        emailDiv.innerHTML = "Email: " + user.email;
+
+        document.getElementById("profileBox").appendChild(idDiv);
+        document.getElementById("profileBox").appendChild(emailDiv);
     }
 
 });

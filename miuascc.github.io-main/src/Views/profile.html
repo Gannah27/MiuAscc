@@ -30,7 +30,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <a href="index.html">Home</a>
         <a id="announShow" style="display: none;" href="Announcements.html">Announcements</a>
-        <a id="adminShow" style="display: block;" href="adminPanel.html" class="active">Admin Panel</a>
+        <a id="adminShow" style="display: block;" href="adminPanel.html">Admin Panel</a>
         <a id="addPostShow" style="display: none;" href="addPost.html">Add Post</a>
         <a href="AboutUs.html">About Us</a>
         <a href="Achievments.html">Achievements</a>
@@ -38,7 +38,7 @@
         <a style="display: block;" id="loginShow" href="login.html">Login</a>
         <a style="display: block;" id="registerShow" href="register.html">Register</a>
         <a style="display: none;" id="logoutShow">Logout</a>
-        <a style="display: none;" id="profileShow" href="profile.html">Profile</a>
+        <a style="display: none;" id="profileShow" href="profile.html" class="active">Profile</a>
     </div>
     </div>
     <script>
@@ -55,21 +55,13 @@
         }       
     </script>
     <div class="firstDiv">
-        <h2>Admin Panel</h2>
+        <h2>Profile</h2>
     </div>
     <!-- the form that contains the ID field -->
     <div class="surroundings">
-        <div class="loginBox">
+        <div class="loginBox" id="profileBox">
             <a href="index.html"><img class="navLogo" src="../../assets/Logo.png"></a>
-            <form>
-                <div class="container">
-                    <label for="uid"><b>User ID</b></label>
-                    <input id="uid" type="text" placeholder="Enter ID of user" name="uid" required>
 
-
-                    <button id="makeAdmin" name="makeAdmin" type="submit">Make Admin</button>
-                </div>
-            </form>
         </div>
     </div>
 

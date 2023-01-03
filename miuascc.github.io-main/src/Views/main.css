@@ -102,7 +102,6 @@ nav {
   color: white;
 }
 
-/* Slideshow container */
 .slideshow-container {
   width: 100%;
   padding: 0;
@@ -427,7 +426,6 @@ a:hover {
   margin: auto;
   width: 80%;
   height: auto;
-  border: green solid 2px;
 }
 
 .postImage {

@@ -36,6 +36,7 @@
         <a style="display: block;" id="loginShow" href="login.html">Login</a>
         <a style="display: block;" id="registerShow" href="register.html">Register</a>
         <a style="display: none;" id="logoutShow">Logout</a>
+        <a style="display: none;" id="profileShow" href="profile.html">Profile</a>
     </div>
     <script>
         /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
@@ -56,10 +57,13 @@
             <form>
                 <div class="container">
                     <label for="fileIn"><b>Add Image:</b></label><br>
-                    <input id="fileIn" name="fileIn" style="margin-bottom:50px ;" type="file" accept="image/*">
+                    <input id="fileIn" name="fileIn" style="margin-bottom:25px ;" type="file" accept="image/*">
                     <br>
                     <label for="postTitle"><b>Post Title:</b></label><br>
-                    <input id="postTitle" name="postTitle" style="margin-bottom:50px ;" type="text" required>
+                    <input id="postTitle" name="postTitle" style="margin-bottom:25px ;" type="text" required>
+                    <br>
+                    <label for="formLink"><b>Form Link(not required):</b></label><br>
+                    <input id="formLink" name="formLink" style="margin-bottom:25px ;" type="text">
                     <br>
                     <label for="details"><b>Post Details:</b></label><br>
                     <textarea id="postDetails" name="details" cols="30" rows="10"
@@ -69,58 +73,6 @@
             </form>
         </div>
     </div>
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-        import { doc, getDocs, getFirestore, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"
-        import { getDatabase } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js"
-
-        var firebaseConfig = {
-            //Firebase config
-            apiKey: "AIzaSyBRC3Z3hwO2K5GL4GuYT6lj2uHF81HhHIE",
-            authDomain: "trialsocialmedia-24fd5.firebaseapp.com",
-            databaseURL: "https://trialsocialmedia-24fd5-default-rtdb.firebaseio.com",
-            projectId: "trialsocialmedia-24fd5",
-            storageBucket: "trialsocialmedia-24fd5.appspot.com",
-            messagingSenderId: "489989876046",
-            appId: "1:489989876046:web:a6ee092801e1da5b45961f",
-            measurementId: "G-NK7X1BMFS1"
-        };
-
-
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-        const fs = getFirestore(app);
-        const st = getStorage(app);
-        var docRef = collection(fs, "posts");
-        let fileUpload = document.getElementById("fileIn");
-        let imageURL;
-
-
-        let random_name_int = Math.floor(100000000 + Math.random() * 900000000);
-        let random_name = random_name_int.toString();
-        var storageRef = ref(st, random_name);
-        if (fileUpload) {
-            fileUpload.addEventListener('change', function (evt) {
-                let firstFile = evt.target.files[0]; // upload the first file only
-                let uploadTask = uploadBytes(storageRef, firstFile).then(function (snapshot) {
-
-                    console.log('success! your image has been uploaded!');
-                    getDownloadURL(storageRef).then(function (downloadURL) {
-                        imageURL = downloadURL;
-                        console.log('imageURL:', imageURL);
-                    });
-
-
-                });
-            })
-
-        };
-
-        const docData = {
-
-        };
-    </script>
 </body>
 <script type="module" src="../Controllers/adminController.js"></script>
 <script type="module" src="../Controllers/userController.js"></script>

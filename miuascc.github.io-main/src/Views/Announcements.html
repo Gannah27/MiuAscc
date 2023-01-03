@@ -20,6 +20,7 @@
     </style>
 </head>
 
+    
 <body>
     <nav>
         <a href="index.html"><img class="navlogo" src="../../assets/Logo.png"></a>
@@ -37,6 +38,7 @@
         <a style="display: block;" id="loginShow" href="login.html">Login</a>
         <a style="display: block;" id="registerShow" href="register.html">Register</a>
         <a style="display: none;" id="logoutShow">Logout</a>
+        <a style="display: none;" id="profileShow" href="profile.html">Profile</a>
     </div>
     </div>
     <script>
@@ -57,9 +59,10 @@
         <h2>Announcements</h2>
     </div>
     <div id="posts"></div>
+    
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-        import { doc, getDocs, getFirestore, collection } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"
+        import { doc, getDocs, getFirestore, collection, orderBy, query } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js"
         import { getDatabase } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
         var firebaseConfig = {
             //Firebase config
@@ -73,30 +76,45 @@
             measurementId: "G-NK7X1BMFS1"
         };
 
-
+        //Initializing the firebase connection
         const app = initializeApp(firebaseConfig);
         const db = getDatabase(app);
         const fs = getFirestore(app);
+        //get the posts refrence
         var docRef = collection(fs, "posts");
-        const snapshot = await getDocs(docRef);
+        //prepare query
+        const q = query(docRef, orderBy("createdAt", 'desc'));
+        //execute the query
+        const snapshot = await getDocs(q);
+        //loop on the docs received from the query
         snapshot.docs.forEach(docs => {
+            console.log(docs.data());
 
+            //DOM to create new elements
             let post = document.createElement("div");
             let details = document.createElement("div");
             let publisher = document.createElement("h3");
             let container = document.createElement("div");
             let image = document.createElement("img");
+            let date = document.createElement("p");
+            let formLink = document.createElement("a");
 
             publisher.innerHTML = docs.data().author;
             details.innerHTML = docs.data().postContent;
+            date.innerHTML = docs.data().date;
+            formLink.innerHTML = docs.data().formLink;
 
             container.setAttribute("class", "mediaContainer");
             image.setAttribute("class", "postImage");
             image.setAttribute("src", docs.data().imageUrl);
             post.setAttribute("class", "post");
             details.setAttribute("class", "p1");
+            formLink.setAttribute("href", docs.data().formLink);
 
+            //adding the elements created to the document
+            post.appendChild(date);
             post.appendChild(details);
+            post.appendChild(formLink);
             container.appendChild(image);
             post.appendChild(container);
             document.getElementById("postC").appendChild(publisher);
@@ -108,12 +126,6 @@
 
     </script>
     <div id="postC" class="postContainer">
-        <h3>AdminName</h3>
-        <div class="post">
-            <div class="p1">post details</div>
-            <div class="mediaContainer"> <img class="postImage" src="../../assets/slideshow image 12.JPG"> </div>
-
-        </div>
     </div>
 
 </body>
